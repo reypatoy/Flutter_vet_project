@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 
 import './drawer.dart';
 
-class Home extends StatelessWidget {
-  List user = ['Rey Patoy', 'reypatoy@gmail.com'];
-
+class Services extends StatelessWidget {
+  List user;
+  Services(this.user);
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'BEASTFRIEND VETERINARY CLINIC',
+          'SERVICES',
           style: const TextStyle(
             fontSize: 18,
           ),

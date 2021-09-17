@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
 import './home.dart';
+import './services.dart';
 
 class SideDrawer extends StatelessWidget {
+  List user;
+  SideDrawer(this.user);
   @override
   Widget build(BuildContext context) {
     return new SizedBox(
@@ -19,7 +22,6 @@ class SideDrawer extends StatelessWidget {
           new ListTile(
             title: new Text('HOME'),
             onTap: () {
-              Navigator.pop(context);
               Navigator.push(context,
                   new MaterialPageRoute(builder: (context) => new Home()));
             },
@@ -27,15 +29,15 @@ class SideDrawer extends StatelessWidget {
           new ListTile(
             title: new Text('SERVICES'),
             onTap: () {
-              Navigator.pop(context);
-              Navigator.push(context,
-                  new MaterialPageRoute(builder: (context) => new Home()));
+              Navigator.push(
+                  context,
+                  new MaterialPageRoute(
+                      builder: (context) => new Services(user)));
             },
           ),
           new ListTile(
             title: new Text('APPOINTMENTS'),
             onTap: () {
-              Navigator.pop(context);
               Navigator.push(context,
                   new MaterialPageRoute(builder: (context) => new Home()));
             },
@@ -43,7 +45,6 @@ class SideDrawer extends StatelessWidget {
           new ListTile(
             title: new Text('ACCOUNT'),
             onTap: () {
-              Navigator.pop(context);
               Navigator.push(context,
                   new MaterialPageRoute(builder: (context) => new Home()));
             },
