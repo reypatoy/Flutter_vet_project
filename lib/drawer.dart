@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import './home.dart';
 import './services.dart';
+import './login.dart';
 
 class SideDrawer extends StatelessWidget {
   List user;
@@ -46,7 +47,7 @@ class SideDrawer extends StatelessWidget {
             title: new Text('ACCOUNT'),
             onTap: () {
               Navigator.push(context,
-                  new MaterialPageRoute(builder: (context) => new Home()));
+                  new MaterialPageRoute(builder: (context) => new Login()));
             },
           ),
         ],
