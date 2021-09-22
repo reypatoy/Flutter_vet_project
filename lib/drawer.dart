@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import './home.dart';
 import './services.dart';
 import './login.dart';
+import './appointment.dart';
 
 class SideDrawer extends StatelessWidget {
   List user;
@@ -39,8 +40,10 @@ class SideDrawer extends StatelessWidget {
           new ListTile(
             title: new Text('APPOINTMENTS'),
             onTap: () {
-              Navigator.push(context,
-                  new MaterialPageRoute(builder: (context) => new Home()));
+              Navigator.push(
+                  context,
+                  new MaterialPageRoute(
+                      builder: (context) => new Appointment()));
             },
           ),
           new ListTile(
