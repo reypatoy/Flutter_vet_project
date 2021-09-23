@@ -10,8 +10,24 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  String data = "";
+  TextEditingController first_name = TextEditingController();
+  TextEditingController last_name = TextEditingController();
+  TextEditingController contact_number = TextEditingController();
+  TextEditingController address_barangay = TextEditingController();
+  TextEditingController address_municipality = TextEditingController();
+  TextEditingController email = TextEditingController();
+  TextEditingController username = TextEditingController();
+  TextEditingController password = TextEditingController();
+  TextEditingController confirm_password = TextEditingController();
+  // Create a text controller and use it to retrieve the current value
+  // of the TextField.
 
+  // @override
+  // void dispose() {
+  //   // Clean up the controller when the widget is disposed.
+  //   myController.dispose();
+  //   super.dispose();
+  // }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,16 +55,8 @@ class _LoginState extends State<Login> {
                     fontSize: 26,
                   ),
                 ),
-                Text(
-                  data,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.green,
-                    fontSize: 26,
-                  ),
-                ),
-                const TextField(
+                TextField(
+                    controller: first_name,
                     textAlign: TextAlign.left,
                     decoration: InputDecoration(
                         hintText: 'Username',
@@ -71,19 +79,22 @@ class _LoginState extends State<Login> {
                         onTap: () {
                           Navigator.push(
                               context,
-                              MaterialPageRoute(
-                                  builder: (context) => Create_account()));
+                              new MaterialPageRoute(
+                                  builder: (context) => new Create_account()));
                         },
                       ),
                       ElevatedButton(
-                        onPressed: () async {
-                          final response = await http.get(Uri.parse(
-                              'http://127.0.0.1:8000/flutter_login/'));
-                          final decode = json.decode(response.body)
-                              as Map<String, dynamic>;
-                          setState(() {
-                            data = decode['hello'];
-                          });
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (context) {
+                              return AlertDialog(
+                                // Retrieve the text the that user has entered by using the
+                                // TextEditingController.
+                                content: Text(first_name.text),
+                              );
+                            },
+                          );
                         },
                         child: const Text('login'),
                       ),
