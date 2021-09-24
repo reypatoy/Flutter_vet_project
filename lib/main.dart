@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import './home.dart';
 import './drawer.dart';
+import '../models/usermodel.dart';
+import 'package:scoped_model/scoped_model.dart';
 
 void main() {
   runApp(MaterialApp(
